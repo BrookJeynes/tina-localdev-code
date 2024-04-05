@@ -2,9 +2,9 @@ import { TinaMarkdown } from "tinacms/dist/rich-text";
 import client from "@/tina/__generated__/client";
 
 async function Rules() {
-    const rulesResponse = await client.queries.categoryConnection({ first: 0, last: 9000 });
+    const rulesResponse = await client.queries.categoryConnection({ first: 0, last: 100 });
     const categories = rulesResponse.data.categoryConnection.edges?.map((rule) => {
-        console.debug(rule)
+        console.log(rule)
         return {
             slug: rule?.node?._sys.filename,
             title: rule?.node?.title,
@@ -14,7 +14,7 @@ async function Rules() {
 
     return (
         <div>
-        <a href="http://localhost:3000/admin/index.html#/collections/edit/rule/Test-rule-1">test</a>
+            <a href="http://localhost:3000/admin/index.html#/collections/edit/rule/Test-rule-1">test</a>
             <ul>
                 {
                     categories?.map(cat => <li key={cat.slug}>{cat?.rules?.map(rule => <p key={rule?.rule.id}>{rule?.rule.title}</p>)}</li>)
