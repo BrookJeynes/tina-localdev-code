@@ -11,6 +11,11 @@ const nextConfig = {
             },
             {
                 protocol: "https",
+                hostname: "assets-local-brookj.tinajs.dev",
+                port: "",
+            },
+            {
+                protocol: "https",
                 hostname: "assets.tina.io",
                 port: "",
             },
